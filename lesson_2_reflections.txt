@@ -1,1 +1,54 @@
 How is the staging area different from the working directory and the repository? What value do you think it offers?
+
+	Staging area is the area visible to git which is changed and to be committed when git commit is run.
+
+How can you use the staging area to make sure you have one commit per logical change?
+	
+	Add the file which you have changed and want to commit to staging area using "git add filename" followed by "git commit" . This will commit the changes you made to the filename you specified.
+
+
+Git commands
+	git init 				: Make a directory a git repository.
+	git status				: shows the status of the directory and repository (i.e. Tracked and Untracked files)
+	git log 				: Displays commit log
+	git commit 				: Commits the changes in staging area.
+	git add 				: Add a file to staging area.
+	git diff commit1 commit2: Diffs b/w 2 commits
+	git diff --staged		: diffs between latest commit (head commit) and staging area.
+	git diff 				: Diffs between Working directory and staging area.
+	git checkout commit_id	: jumps head to the commit_id i.e. restore to a previous version.
+	git checkout branch_name: jumps head to the tip of the branch specified
+	git checkout -b branch_name	: Creates a branch branch_name and puts head on it.
+	git branch				: Shows all the branch tips and the branch tip head is currently on.
+	git branch branch_name  : Creates a new branch with  the name branch_name.
+	git merge branch1 branch2: Merges branch1 with branch2 . If you were on branch1 when merging, new merged branch will 							be named 1 and vice versa. If you were on branch3 (any other branch) it will also be merged 						   with these two and merged branch will be branch3.
+	git log --graph --oneline : displays git log graph with branching merging etc and each commit in one line.
+	git log -n no_of_commits : Displays only no_of_commits commits.
+
+
+
+What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+	
+	When we want to make more than one changes in our project as well as keep the previous version intact , we can use branching. They will create 2 or more different profiles (branches) of project to work on which later can be merged. 
+	One branch is always master branch and other branches have names (specified when creating them).
+
+
+How do the diagrams help you visualize the branch structure?
+	
+	Every Commit has a parent that is the tip of the branch (or the current checked out commit) . If you checkout to a commit (not a branch) and make a commit there and then checkout to another commit , the new commit is lost if you haven't stored its id.
+
+
+What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+	
+	On merging 2 branches , a new commit is created and your current branch tip goes to it. This commit will have both the parents thus we represent it in the diagram as we do.
+
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+
+	Pros : Automatically merges two branches/commits if there are no conflicts (i.e. no line which is modified in both 		   commits from their common ancestor).
+
+	If there is a conflict , open the conflicted file it shows three diff contents of conflicted area , that of current branch , the common ancestor commit , 2nd branch (to which you are merging) respectively. You can resolve the commit then.
+
+
+
+	
+
